@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { saveSubmission } from '../services/storageService';
 
 interface ContactPageProps {
   onBookCall: () => void;
@@ -14,11 +15,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBookCall }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate send
-    setTimeout(() => {
-        setIsSent(true);
-        setFormState({ name: '', email: '', message: '' });
-    }, 1000);
+    
+    // Save to "Backend" (Admin Dashboard)
+    saveSubmission({
+        name: formState.name,
+        email: formState.email,
+        message: formState.message,
+        type: 'inquiry'
+    });
+
+    // Show success UI
+    setIsSent(true);
+    setFormState({ name: '', email: '', message: '' });
   }
 
   return (
@@ -87,9 +95,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBookCall }) => {
                    
                    {isSent ? (
                        <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center animate-fade-in">
-                           <span className="material-icons text-green-500 text-5xl mb-4">mark_email_read</span>
-                           <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h4>
-                           <p className="text-gray-600">Thanks for reaching out. We'll get back to you shortly.</p>
+                           <span className="material-icons text-green-500 text-5xl mb-4">task_alt</span>
+                           <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent Successfully!</h4>
+                           <p className="text-gray-600">Thanks for reaching out. Your message has been sent to our team directly. We'll be in touch soon.</p>
                            <button onClick={() => setIsSent(false)} className="mt-6 text-primary font-bold hover:underline">Send another message</button>
                        </div>
                    ) : (

@@ -9,6 +9,7 @@ import { ServicesPage } from './pages/ServicesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { ServiceDetail } from './pages/ServiceDetail';
+import { AdminDashboard } from './pages/AdminDashboard';
 
 // Wrapper to handle scroll on route change
 const ScrollToTop = () => {
@@ -38,6 +39,7 @@ const App: React.FC = () => {
                 <Route path="/about" element={<AboutPage onBookCall={openBooking} />} />
                 <Route path="/contact" element={<ContactPage onBookCall={openBooking} />} />
                 <Route path="/service/:id" element={<ServiceDetail onBookCall={openBooking} />} />
+                <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
         </main>
 

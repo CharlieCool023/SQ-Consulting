@@ -46,7 +46,10 @@ export const Footer: React.FC = () => {
           <p>© 2023 SQ Consulting. All rights reserved.</p>
           <div className="flex justify-center gap-6">
             <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition">Terms of Service</a>
+            <Link to="/admin" className="hover:text-white transition opacity-50 hover:opacity-100 flex items-center gap-1">
+                <span className="material-icons text-[10px]">admin_panel_settings</span>
+                Admin Login
+            </Link>
           </div>
         </div>
       </div>
