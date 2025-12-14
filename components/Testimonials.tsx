@@ -35,7 +35,7 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {TESTIMONIALS.map((t, i) => (
+                    {TESTIMONIALS.map((t) => (
                         <div key={t.id} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 relative hover:shadow-xl transition duration-300">
                             <div className="absolute top-6 right-8 opacity-10">
                                 <span className="material-icons text-6xl text-primary">format_quote</span>

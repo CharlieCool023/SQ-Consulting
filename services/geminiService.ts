@@ -1,6 +1,9 @@
 import { GoogleGenAI, Content, Part } from "@google/genai";
 import { CHAT_SYSTEM_INSTRUCTION } from "../constants";
 
+// Declare process to satisfy TypeScript compiler (value injected by Vite)
+declare const process: { env: { API_KEY: string } };
+
 let aiClient: GoogleGenAI | null = null;
 
 const getClient = () => {
@@ -26,9 +29,6 @@ export const sendMessageToGemini = async (
 
   try {
     // Map history to the specific format expected by the SDK
-    // Note: The SDK typically manages history in a Chat session, but here we can stateless or reconstruct
-    // For simplicity in this demo, we will use a fresh chat session with history loaded
-    
     const formattedHistory: Content[] = history.map(msg => ({
       role: msg.role,
       parts: [{ text: msg.text } as Part]
