@@ -24,7 +24,7 @@ export const sendMessageToGemini = async (
 ): Promise<string> => {
   const client = getClient();
   if (!client) {
-    return "I'm currently offline (API Key missing). Please contact support.";
+    return "I'm currently offline. Please book a free call instead.";
   }
 
   try {
