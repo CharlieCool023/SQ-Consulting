@@ -15,35 +15,35 @@ export const Home: React.FC<HomeProps> = ({ onBookCall }) => {
       <Hero onBookCall={onBookCall} />
 
       {/* Audit CTA Section */}
-      <section className="py-20 bg-white relative">
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-primary/5 rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden shadow-sm border border-primary/10">
             <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-              <div className="md:w-2/3">
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+              <div className="md:w-2/3 text-center md:text-left">
                 <div className="inline-block bg-white border border-gray-200 rounded-full px-4 py-1.5 text-xs font-bold text-secondary mb-6 shadow-sm uppercase tracking-wide">
                     🚀 Limited Time Offer
                 </div>
                 <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                    Unclear on your next step? <br/> Let's audit your business in 60 seconds.
+                    Unclear on your next step? <br className="hidden md:block" /> Let's audit your business in 60 seconds.
                 </h2>
-                <ul className="space-y-4 mb-8">
-                    <li className="flex items-center gap-4 text-gray-700 text-lg">
-                        <span className="material-icons text-green-500">check_circle</span>
+                <ul className="space-y-4 mb-8 text-left inline-block md:block">
+                    <li className="flex items-center gap-4 text-gray-700 text-base md:text-lg">
+                        <span className="material-icons text-green-500 flex-shrink-0">check_circle</span>
                         <span>Identify hidden growth opportunities</span>
                     </li>
-                    <li className="flex items-center gap-4 text-gray-700 text-lg">
-                        <span className="material-icons text-green-500">check_circle</span>
+                    <li className="flex items-center gap-4 text-gray-700 text-base md:text-lg">
+                        <span className="material-icons text-green-500 flex-shrink-0">check_circle</span>
                         <span>Optimize operations for maximum efficiency</span>
                     </li>
-                     <li className="flex items-center gap-4 text-gray-700 text-lg">
-                        <span className="material-icons text-green-500">check_circle</span>
+                     <li className="flex items-center gap-4 text-gray-700 text-base md:text-lg">
+                        <span className="material-icons text-green-500 flex-shrink-0">check_circle</span>
                         <span>Get expert roadmap guidance</span>
                     </li>
                 </ul>
               </div>
-              <div className="md:w-1/3 flex flex-col gap-6 items-center">
-                <div className="bg-white p-8 rounded-3xl shadow-xl w-full max-w-xs text-center border border-gray-100 transform rotate-1">
+              <div className="md:w-1/3 flex flex-col gap-6 items-center w-full">
+                <div className="bg-white p-6 md:p-8 rounded-3xl shadow-xl w-full max-w-xs text-center border border-gray-100 transform rotate-1">
                     <p className="text-gray-500 text-sm mb-2 font-medium uppercase tracking-widest">Availability</p>
                     <p className="text-4xl font-bold text-primary mb-2">5 Spots</p>
                     <p className="text-sm text-gray-500">For free discovery calls this week</p>
@@ -62,12 +62,12 @@ export const Home: React.FC<HomeProps> = ({ onBookCall }) => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-16 md:py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <span className="text-secondary font-bold tracking-wider uppercase text-sm">What We Do</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-6 text-gray-900">Holistic Business Solutions</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed px-4">
                 From streamlining software transitions to training your workforce. We cover every angle of your growth strategy with precision and care.
             </p>
           </div>
@@ -86,10 +86,10 @@ export const Home: React.FC<HomeProps> = ({ onBookCall }) => {
       </section>
 
       {/* Training / Poster Section */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-16 md:py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center gap-16">
-                <div className="lg:w-1/2 relative group">
+            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div className="w-full lg:w-1/2 relative group px-4 md:px-0">
                     <div className="absolute -top-10 -left-10 w-48 h-48 bg-purple-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob"></div>
                     <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-orange-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000"></div>
                     <img 
@@ -97,22 +97,22 @@ export const Home: React.FC<HomeProps> = ({ onBookCall }) => {
                         className="relative rounded-3xl shadow-2xl z-10 w-full transform group-hover:scale-[1.01] transition duration-700"
                         alt="Professional Training"
                     />
-                    <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl z-20 border border-gray-100">
-                        <div className="flex items-center gap-5">
-                            <div className="w-14 h-14 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                    <div className="absolute -bottom-6 left-4 right-4 md:bottom-8 md:left-8 md:right-8 bg-white/95 backdrop-blur-md p-4 md:p-6 rounded-2xl shadow-xl z-20 border border-gray-100">
+                        <div className="flex items-center gap-4 md:gap-5">
+                            <div className="w-12 h-12 md:w-14 md:h-14 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-lg flex-shrink-0">
                                 %
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 text-lg">Become a Professional</h4>
-                                <p className="text-sm text-gray-600">Specialized trainings for MSMEs</p>
+                                <h4 className="font-bold text-gray-900 text-base md:text-lg">Become a Professional</h4>
+                                <p className="text-xs md:text-sm text-gray-600">Specialized trainings for MSMEs</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="lg:w-1/2">
+                <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
                     <div className="inline-block px-3 py-1 bg-purple-50 text-primary rounded-lg text-sm font-bold mb-4">Upskill Your Team</div>
-                    <h2 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">Empower Your Team with Professional Training</h2>
-                    <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">Empower Your Team with Professional Training</h2>
+                    <p className="text-base md:text-lg text-gray-600 mb-10 leading-relaxed">
                         Technical skills are the currency of the future. We offer specialized training workshops designed to help you and your staff master critical business functions immediately.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
@@ -125,7 +125,7 @@ export const Home: React.FC<HomeProps> = ({ onBookCall }) => {
                     </div>
                     <button 
                         onClick={onBookCall}
-                        className="bg-gray-900 text-white px-10 py-4 rounded-xl font-bold hover:bg-gray-800 transition shadow-xl flex items-center gap-2"
+                        className="w-full sm:w-auto bg-gray-900 text-white px-10 py-4 rounded-xl font-bold hover:bg-gray-800 transition shadow-xl flex items-center justify-center gap-2"
                     >
                         Inquire About Training
                          <span className="material-icons text-sm">email</span>
@@ -138,25 +138,25 @@ export const Home: React.FC<HomeProps> = ({ onBookCall }) => {
       <Testimonials />
 
       {/* Trust/Stats */}
-      <section className="py-24 bg-primary text-white relative overflow-hidden">
+      <section className="py-20 bg-primary text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-white/10">
-                  <div className="p-4">
-                      <div className="text-5xl font-bold mb-3 tracking-tight">50+</div>
-                      <div className="text-purple-200 text-sm font-medium uppercase tracking-wider">Businesses Scaled</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center divide-x divide-white/10">
+                  <div className="p-2 md:p-4">
+                      <div className="text-4xl md:text-5xl font-bold mb-2 md:mb-3 tracking-tight">50+</div>
+                      <div className="text-purple-200 text-xs md:text-sm font-medium uppercase tracking-wider">Businesses Scaled</div>
                   </div>
-                  <div className="p-4">
-                      <div className="text-5xl font-bold mb-3 tracking-tight">100%</div>
-                      <div className="text-purple-200 text-sm font-medium uppercase tracking-wider">Client Satisfaction</div>
+                  <div className="p-2 md:p-4">
+                      <div className="text-4xl md:text-5xl font-bold mb-2 md:mb-3 tracking-tight">100%</div>
+                      <div className="text-purple-200 text-xs md:text-sm font-medium uppercase tracking-wider">Client Satisfaction</div>
                   </div>
-                  <div className="p-4">
-                      <div className="text-5xl font-bold mb-3 tracking-tight">10+</div>
-                      <div className="text-purple-200 text-sm font-medium uppercase tracking-wider">Training Modules</div>
+                  <div className="p-2 md:p-4">
+                      <div className="text-4xl md:text-5xl font-bold mb-2 md:mb-3 tracking-tight">10+</div>
+                      <div className="text-purple-200 text-xs md:text-sm font-medium uppercase tracking-wider">Training Modules</div>
                   </div>
-                   <div className="p-4">
-                      <div className="text-5xl font-bold mb-3 tracking-tight">24/7</div>
-                      <div className="text-purple-200 text-sm font-medium uppercase tracking-wider">Support Available</div>
+                   <div className="p-2 md:p-4">
+                      <div className="text-4xl md:text-5xl font-bold mb-2 md:mb-3 tracking-tight">24/7</div>
+                      <div className="text-purple-200 text-xs md:text-sm font-medium uppercase tracking-wider">Support Available</div>
                   </div>
               </div>
           </div>

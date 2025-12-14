@@ -35,6 +35,15 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onBookCall }) => {
     scrollToBottom();
   }, [messages, isOpen]);
 
+  // Prevent background scrolling on mobile when chat is open
+  useEffect(() => {
+    if (isOpen && window.innerWidth < 768) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isOpen]);
+
   const handleSend = async (text: string = inputText) => {
     if (!text.trim() || isLoading) return;
 
@@ -65,10 +74,10 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onBookCall }) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className={`fixed z-50 transition-all duration-300 ${isOpen ? 'inset-0 md:bottom-6 md:right-6 md:left-auto md:top-auto' : 'bottom-6 right-6'}`}>
       {/* Chat Window */}
       {isOpen && (
-        <div className="mb-4 w-[92vw] md:w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-100 animate-slide-up ring-1 ring-black/5">
+        <div className="w-full h-full md:w-96 md:h-[600px] bg-white md:rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-gray-100 animate-slide-up ring-1 ring-black/5">
           {/* Header */}
           <div className="bg-primary p-4 flex justify-between items-center text-white bg-gradient-to-r from-primary to-primary-light">
             <div className="flex items-center gap-3">
@@ -82,7 +91,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onBookCall }) => {
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-2 rounded-full transition">
-              <span className="material-icons text-sm">close</span>
+              <span className="material-icons text-lg">expand_more</span>
             </button>
           </div>
 
@@ -96,7 +105,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onBookCall }) => {
                     </div>
                 )}
                 <div 
-                  className={`max-w-[80%] p-3.5 rounded-2xl text-sm leading-relaxed shadow-sm ${
+                  className={`max-w-[85%] p-3.5 rounded-2xl text-sm leading-relaxed shadow-sm ${
                     msg.role === 'user' 
                       ? 'bg-primary text-white rounded-br-none' 
                       : 'bg-white border border-gray-200 text-gray-800 rounded-bl-none'
@@ -137,7 +146,7 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onBookCall }) => {
           )}
 
           {/* Input */}
-          <div className="p-4 bg-white border-t border-gray-100">
+          <div className="p-4 bg-white border-t border-gray-100 pb-safe">
              <div className="flex gap-2 relative">
                <input
                 type="text"
@@ -178,13 +187,13 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onBookCall }) => {
           onClick={() => setIsOpen(true)}
           className="group relative flex items-center justify-center"
         >
-          <span className="absolute right-full mr-4 bg-white text-gray-800 px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <span className="hidden md:block absolute right-full mr-4 bg-white text-gray-800 px-3 py-1.5 rounded-lg text-sm font-medium shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Chat with us!
           </span>
-          <div className="bg-gradient-to-tr from-primary to-primary-light text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all transform group-hover:scale-110 group-hover:rotate-3 border-4 border-white">
-            <span className="material-icons text-3xl">chat_bubble</span>
+          <div className="bg-gradient-to-tr from-primary to-primary-light text-white w-14 h-14 md:w-16 md:h-16 rounded-full shadow-2xl flex items-center justify-center transition-all transform hover:scale-105 active:scale-95 border-4 border-white">
+            <span className="material-icons text-2xl md:text-3xl">chat_bubble</span>
           </div>
-          <span className="absolute top-0 right-0 w-5 h-5 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+          <span className="absolute top-0 right-0 w-4 h-4 md:w-5 md:h-5 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
         </button>
       )}
     </div>

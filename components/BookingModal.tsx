@@ -62,7 +62,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center sm:p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-gray-900/70 backdrop-blur-sm transition-opacity"
@@ -70,9 +70,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
       ></div>
 
       {/* Modal Content */}
-      <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden animate-slide-up border border-gray-200">
+      <div className="relative bg-white w-full max-w-lg overflow-hidden animate-slide-up md:rounded-3xl rounded-t-3xl border-t border-gray-200 md:border md:shadow-2xl h-[90vh] md:h-auto flex flex-col">
         {isSubmitted ? (
-          <div className="p-10 text-center flex flex-col items-center animate-fade-in">
+          <div className="p-8 md:p-10 text-center flex flex-col items-center animate-fade-in h-full justify-center">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 animate-bounce-slow">
               <span className="material-icons text-4xl text-green-600">check_circle</span>
             </div>
@@ -103,10 +103,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             </button>
           </div>
         ) : (
-          <div className="flex flex-col h-full max-h-[90vh]">
-             <div className="bg-primary p-6 text-white flex justify-between items-start bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+          <div className="flex flex-col h-full">
+             <div className="bg-primary p-6 text-white flex justify-between items-start flex-shrink-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
                <div>
-                 <h2 className="text-2xl font-bold">Schedule Consultation</h2>
+                 <h2 className="text-xl md:text-2xl font-bold">Schedule Consultation</h2>
                  <p className="text-purple-200 text-sm mt-1">Free 30-minute growth strategy session.</p>
                </div>
                <button onClick={onClose} className="hover:bg-white/20 p-2 rounded-full transition">
@@ -114,8 +114,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                </button>
              </div>
              
-             <div className="overflow-y-auto p-6">
-                <form onSubmit={handleSubmit} className="space-y-5">
+             <div className="overflow-y-auto p-6 flex-1">
+                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
                 <div>
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Full Name</label>
                     <div className="relative">
@@ -123,7 +123,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                         <input 
                             required
                             type="text" 
-                            className="w-full pl-9 pr-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                            className="w-full pl-9 pr-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-base"
                             placeholder="John Doe"
                             value={formData.name}
                             onChange={e => setFormData({...formData, name: e.target.value})}
@@ -137,7 +137,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                         <input 
                             required
                             type="email" 
-                            className="w-full pl-9 pr-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                            className="w-full pl-9 pr-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-base"
                             placeholder="john@company.com"
                             value={formData.email}
                             onChange={e => setFormData({...formData, email: e.target.value})}
@@ -151,7 +151,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                             <input 
                                 required
                                 type="date" 
-                                className="w-full px-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm text-gray-600"
+                                className="w-full px-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm text-gray-600 appearance-none"
                                 value={formData.date}
                                 onChange={e => setFormData({...formData, date: e.target.value})}
                             />
@@ -163,7 +163,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                             <input 
                                 required
                                 type="time" 
-                                className="w-full px-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm text-gray-600"
+                                className="w-full px-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-sm text-gray-600 appearance-none"
                                 value={formData.time}
                                 onChange={e => setFormData({...formData, time: e.target.value})}
                             />
@@ -176,7 +176,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                         <span className="material-icons absolute left-3 top-2.5 text-gray-400 text-sm">business</span>
                         <input 
                             type="text" 
-                            className="w-full pl-9 pr-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                            className="w-full pl-9 pr-4 py-2.5 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition text-base"
                             placeholder="Acme Inc"
                             value={formData.company}
                             onChange={e => setFormData({...formData, company: e.target.value})}
@@ -187,7 +187,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     <label className="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Project Details</label>
                     <textarea 
                         rows={3}
-                        className="w-full px-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none"
+                        className="w-full px-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none text-base"
                         placeholder="Briefly describe your goals..."
                         value={formData.message}
                         onChange={e => setFormData({...formData, message: e.target.value})}
@@ -197,7 +197,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 <button 
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-secondary hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl shadow-lg transform active:scale-95 transition duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full bg-secondary hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl shadow-lg transform active:scale-95 transition duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed mb-safe"
                 >
                     {isLoading ? (
                         <>

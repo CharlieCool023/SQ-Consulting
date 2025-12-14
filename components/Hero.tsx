@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
   }, []);
 
   return (
-    <div className="relative h-[600px] lg:h-[750px] overflow-hidden bg-primary-dark">
+    <div className="relative h-[100dvh] min-h-[600px] lg:h-[750px] overflow-hidden bg-primary-dark">
       {/* Background Slides */}
       {SLIDES.map((slide, index) => (
         <div 
@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
             <img 
                 src={slide.image} 
                 alt={slide.title} 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
             />
           </div>
           {/* Gradient Overlay for Text Readability */}
@@ -65,28 +65,28 @@ export const Hero: React.FC<HeroProps> = ({ onBookCall }) => {
 
       {/* Content Content */}
       <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pointer-events-auto mt-16 md:mt-0">
             {SLIDES.map((slide, index) => {
                  if (index !== currentSlide) return null;
                  return (
-                    <div key={slide.id} className={`max-w-4xl ${slide.align === 'center' ? 'mx-auto text-center' : slide.align === 'right' ? 'ml-auto text-right' : 'text-left'} animate-slide-up`}>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+                    <div key={slide.id} className={`max-w-4xl ${slide.align === 'center' ? 'md:mx-auto md:text-center' : slide.align === 'right' ? 'md:ml-auto md:text-right' : 'md:text-left'} animate-slide-up text-left`}>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-2xl">
                         {slide.title}
                         </h1>
-                        <p className="text-xl md:text-2xl text-purple-100 mb-10 font-light drop-shadow-lg max-w-2xl inline-block">
+                        <p className="text-lg sm:text-xl md:text-2xl text-purple-100 mb-8 md:mb-10 font-light drop-shadow-lg max-w-2xl inline-block">
                         {slide.subtitle}
                         </p>
-                        <div className={`flex flex-col sm:flex-row gap-4 ${slide.align === 'center' ? 'justify-center' : slide.align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                        <div className={`flex flex-col sm:flex-row gap-4 ${slide.align === 'center' ? 'md:justify-center' : slide.align === 'right' ? 'md:justify-end' : 'md:justify-start'}`}>
                             <button 
                                 onClick={onBookCall}
-                                className="group bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl shadow-orange-900/20 transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-2"
+                                className="group bg-secondary hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl shadow-orange-900/20 transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
                             >
                                 <span className="material-icons group-hover:rotate-12 transition">calendar_today</span>
                                 Book Consultation
                             </button>
                             <Link 
                                 to="/services" 
-                                className="group bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/20 hover:border-white/50 transition duration-300 flex items-center justify-center gap-2"
+                                className="group bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-white/20 hover:border-white/50 transition duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
                             >
                                 Explore Services
                                 <span className="material-icons group-hover:translate-x-1 transition">arrow_forward</span>
