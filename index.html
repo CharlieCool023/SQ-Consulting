@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SQ Consulting - Delivering Value</title>
+    <title>SQ Consulting - Strategic Growth Partners</title>
     <meta name="description" content="Full-service growth and strategy advisory firm." />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,20 +14,21 @@
         theme: {
           extend: {
             colors: {
-              primary: "#6A1B9A",
-              secondary: "#E65100",
-              "primary-light": "#8E24AA",
-              "background-light": "#F3F4F6",
-              "background-dark": "#1F2937",
+              primary: "#4C1D95", /* Deep Violet - Professional & Trustworthy */
+              secondary: "#EA580C", /* Burnt Orange - Energetic accent */
+              "primary-light": "#6D28D9",
+              "primary-dark": "#2E1065",
+              "background-light": "#F8FAFC", /* Slate 50 - Softer on eyes */
+              "background-dark": "#0F172A",
               "surface-light": "#FFFFFF",
-              "surface-dark": "#111827",
             },
             fontFamily: {
               sans: ["Poppins", "sans-serif"],
             },
             animation: {
-              'fade-in': 'fadeIn 0.5s ease-out',
-              'slide-up': 'slideUp 0.5s ease-out',
+              'fade-in': 'fadeIn 0.8s ease-out forwards',
+              'slide-up': 'slideUp 0.8s ease-out forwards',
+              'scale-in': 'scaleIn 0.5s ease-out forwards',
               'bounce-slow': 'bounce 3s infinite',
             },
             keyframes: {
@@ -36,8 +37,12 @@
                 '100%': { opacity: '1' },
               },
               slideUp: {
-                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
                 '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.95)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
               }
             }
           },
@@ -46,7 +51,15 @@
     </script>
     <style>
       html { scroll-behavior: smooth; }
-      body { overflow-x: hidden; }
+      body { overflow-x: hidden; background-color: #F8FAFC; color: #1e293b; }
+      /* Hide scrollbar for clean modal look */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
   <script type="importmap">
 {
