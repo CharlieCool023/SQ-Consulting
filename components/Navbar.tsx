@@ -39,7 +39,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookCall }) => {
   const isDarkText = scrolled || location.pathname !== '/' || isOpen;
 
   const textClass = isDarkText ? 'text-gray-800 hover:text-primary' : 'text-white hover:text-orange-200';
-  const logoClass = isDarkText ? 'text-primary' : 'text-white';
+  const logoTextClass = isDarkText ? 'text-primary' : 'text-white';
+  const logoSubClass = isDarkText ? 'text-secondary' : 'text-orange-200';
   const buttonClass = isDarkText 
     ? 'bg-secondary text-white hover:bg-orange-600' 
     : 'bg-white text-primary hover:bg-gray-100';
@@ -50,12 +51,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onBookCall }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex-shrink-0 flex items-center space-x-2 group z-50 relative">
-            <div className={`p-2 rounded-lg transition-colors ${isDarkText ? 'bg-primary text-white' : 'bg-white text-primary'}`}>
-               <span className="font-bold text-xl leading-none">SQ</span>
+          <Link to="/" className="flex-shrink-0 flex items-center gap-3 group z-50 relative">
+            {/* SVG Logo approximating the 'SQ' image */}
+            <div className={`w-10 h-10 flex items-center justify-center ${isDarkText ? '' : 'bg-white/10 rounded-lg p-1'}`}>
+                <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Purple S part */}
+                    <path d="M70 20C50 20 40 35 40 45C40 55 60 55 60 65C60 75 40 75 30 65" stroke={isDarkText ? "#8B2474" : "white"} strokeWidth="12" strokeLinecap="round" />
+                    {/* Orange Q part */}
+                    <path d="M30 35C20 45 20 65 35 75C50 85 70 80 80 60" stroke={isDarkText ? "#F37225" : "#FFA726"} strokeWidth="12" strokeLinecap="round" />
+                    <path d="M65 70L85 90" stroke={isDarkText ? "#F37225" : "#FFA726"} strokeWidth="12" strokeLinecap="round" />
+                </svg>
             </div>
-            <div className="flex flex-col">
-              <span className={`font-bold text-xl tracking-tight transition-colors ${logoClass}`}>SQ Consulting</span>
+            <div className="flex flex-col -space-y-1">
+              <span className={`font-bold text-xl tracking-tight transition-colors ${logoTextClass}`}>SQ Consulting</span>
+              <span className={`font-script text-lg transition-colors ${logoSubClass}`}>Delivering Values...</span>
             </div>
           </Link>
           

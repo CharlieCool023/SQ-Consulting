@@ -2,15 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { getSubmissions, markAsRead, deleteSubmission, Message } from '../services/storageService';
 
 export const AdminDashboard: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  
   const [messages, setMessages] = useState<Message[]>([]);
   const [filter, setFilter] = useState<'all' | 'inquiry' | 'booking'>('all');
 
   useEffect(() => {
-    loadMessages();
-    // Poll for new messages every 5 seconds
-    const interval = setInterval(loadMessages, 5000);
-    return () => clearInterval(interval);
+    // Check session storage for existing auth
+    const auth = sessionStorage.getItem('sq_admin_auth');
+    if (auth === 'true') {
+        setIsAuthenticated(true);
+        loadMessages();
+    }
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+        const interval = setInterval(loadMessages, 5000);
+        return () => clearInterval(interval);
+    }
+  }, [isAuthenticated]);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === 'admin123') {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('sq_admin_auth', 'true');
+        loadMessages();
+        setError('');
+    } else {
+        setError('Invalid credentials');
+    }
+  };
 
   const loadMessages = () => {
     setMessages(getSubmissions());
@@ -30,6 +55,39 @@ export const AdminDashboard: React.FC = () => {
 
   const filteredMessages = messages.filter(m => filter === 'all' || m.type === filter);
 
+  // LOGIN SCREEN
+  if (!isAuthenticated) {
+    return (
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+            <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+                <div className="text-center mb-8">
+                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                         <span className="material-icons text-primary text-3xl">lock</span>
+                     </div>
+                     <h2 className="text-2xl font-bold text-gray-900">Admin Login</h2>
+                     <p className="text-gray-500 text-sm">Enter your secure PIN to access dashboard.</p>
+                </div>
+                <form onSubmit={handleLogin} className="space-y-4">
+                    <div>
+                        <input 
+                            type="password" 
+                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-primary outline-none text-center text-lg tracking-widest"
+                            placeholder="Enter Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    {error && <p className="text-red-500 text-sm text-center font-bold">{error}</p>}
+                    <button type="submit" className="w-full bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary-dark transition shadow-lg">
+                        Access Dashboard
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+  }
+
+  // DASHBOARD
   return (
     <div className="min-h-screen bg-gray-100 pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,18 +96,30 @@ export const AdminDashboard: React.FC = () => {
             <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
             <p className="text-gray-500 mt-1">Manage your inquiries and appointments</p>
           </div>
-          <div className="flex bg-white rounded-lg p-1 shadow-sm mt-4 md:mt-0">
-            {(['all', 'inquiry', 'booking'] as const).map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition ${
-                  filter === f ? 'bg-primary text-white shadow' : 'text-gray-600 hover:bg-gray-50'
-                }`}
-              >
-                {f.charAt(0).toUpperCase() + f.slice(1)}s
-              </button>
-            ))}
+          <div className="flex flex-col md:flex-row gap-4 items-end md:items-center mt-4 md:mt-0">
+             <div className="flex bg-white rounded-lg p-1 shadow-sm">
+                {(['all', 'inquiry', 'booking'] as const).map((f) => (
+                <button
+                    key={f}
+                    onClick={() => setFilter(f)}
+                    className={`px-4 py-2 rounded-md text-sm font-medium transition ${
+                    filter === f ? 'bg-primary text-white shadow' : 'text-gray-600 hover:bg-gray-50'
+                    }`}
+                >
+                    {f.charAt(0).toUpperCase() + f.slice(1)}s
+                </button>
+                ))}
+            </div>
+            <button 
+                onClick={() => {
+                    setIsAuthenticated(false);
+                    sessionStorage.removeItem('sq_admin_auth');
+                }}
+                className="text-sm text-red-500 hover:text-red-700 font-bold flex items-center gap-1 bg-white px-3 py-2 rounded-lg shadow-sm"
+            >
+                <span className="material-icons text-sm">logout</span>
+                Logout
+            </button>
           </div>
         </div>
 

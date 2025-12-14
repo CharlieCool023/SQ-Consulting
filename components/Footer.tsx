@@ -8,10 +8,17 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-16">
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-               <div className="bg-white p-2 rounded-lg w-10 h-10 flex items-center justify-center">
-                  <span className="text-primary font-bold text-xl leading-none">SQ</span>
+               <div className="bg-white p-2 rounded-lg w-12 h-12 flex items-center justify-center">
+                  <svg viewBox="0 0 100 100" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M70 20C50 20 40 35 40 45C40 55 60 55 60 65C60 75 40 75 30 65" stroke="#8B2474" strokeWidth="12" strokeLinecap="round" />
+                    <path d="M30 35C20 45 20 65 35 75C50 85 70 80 80 60" stroke="#F37225" strokeWidth="12" strokeLinecap="round" />
+                    <path d="M65 70L85 90" stroke="#F37225" strokeWidth="12" strokeLinecap="round" />
+                  </svg>
                 </div>
-                <span className="text-2xl font-bold tracking-tight">SQ Consulting</span>
+                <div className="flex flex-col">
+                    <span className="text-2xl font-bold tracking-tight">SQ Consulting</span>
+                    <span className="font-script text-secondary text-lg">Delivering Values...</span>
+                </div>
             </div>
             <p className="text-purple-200 text-sm leading-relaxed max-w-sm">
               Empowering businesses with data-driven strategies, financial clarity, and compelling design. We are your partners in sustainable growth.
@@ -43,13 +50,10 @@ export const Footer: React.FC = () => {
           </div>
         </div>
         <div className="text-center text-xs text-purple-300 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© 2023 SQ Consulting. All rights reserved.</p>
+          <p>© 2025 SQ Consulting. All rights reserved.</p>
           <div className="flex justify-center gap-6">
             <a href="#" className="hover:text-white transition">Privacy Policy</a>
-            <Link to="/admin" className="hover:text-white transition opacity-50 hover:opacity-100 flex items-center gap-1">
-                <span className="material-icons text-[10px]">admin_panel_settings</span>
-                Admin Login
-            </Link>
+            {/* Admin link removed for security as requested */}
           </div>
         </div>
       </div>
