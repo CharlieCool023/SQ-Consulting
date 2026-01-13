@@ -3,123 +3,106 @@ import { Service } from './types';
 export const SERVICES: Service[] = [
   {
     id: 'business-intelligence',
-    title: 'Business Intelligence',
+    title: 'Business Intelligence & Data Analytics',
     icon: 'insights',
-    shortDescription: 'Data Analysis, Dashboarding, & Market Research.',
-    fullDescription: 'Transform raw data into your most valuable asset. Our BI experts design interactive dashboards in PowerBI and Tableau that give you a pulse on your business performance. From data cleaning to deep-dive competitor analysis, we ensure you make decisions based on facts, not guesswork.',
+    shortDescription: 'Advanced Data Storytelling, Predictive Modeling & Real-time Dashboards.',
+    fullDescription: 'Stop flying blind. We transform your fragmented data into a strategic roadmap. Our BI methodology goes beyond simple charts; we build living ecosystems in PowerBI or Tableau that predict market shifts before they happen. Whether you are a retail chain in Lagos or a pan-African logistics firm, we provide the "Signal" within the "Noise."',
     features: [
-      'Interactive BI Dashboards',
-      'Data Cleaning & Entry',
-      'Predictive Analytics',
-      'Market Trend Analysis'
+      'Interactive ROI Dashboards',
+      'Revenue Leakage Detection',
+      'Automated Inventory Forecasting',
+      'Customer Lifetime Value (CLV) Analytics'
     ],
-    color: 'text-blue-600',
-    borderColor: 'border-blue-600',
-    iconBg: 'bg-blue-50',
-    heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'
+    color: 'text-primary',
+    borderColor: 'border-primary',
+    iconBg: 'bg-primary/10',
+    heroImage: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop'
   },
   {
     id: 'software-transition',
-    title: 'Software Transition',
+    title: 'Digital Transformation & Software Transition',
     icon: 'transform',
-    shortDescription: 'Process Mapping, Prototyping & Change Support.',
-    fullDescription: 'Adopting new technology is challenging. We streamline your software transition by mapping your existing processes, identifying gaps, and prototyping the future state. We provide change management support to ensure your team adapts quickly and efficiently to new digital tools.',
+    shortDescription: 'Seamless ERP Migrations, Cloud Adoption & Process Automation.',
+    fullDescription: 'Technology should empower, not hinder. We manage the delicate transition from legacy systems to modern ERPs or custom software. Our approach focuses on "The Human Element"—ensuring your staff in Lagos or anywhere across Nigeria are trained, motivated, and productive from day one of the rollout.',
     features: [
-      'Current vs Future State Mapping',
-      'Software Prototyping',
-      'Gap Analysis',
-      'Change Management Support'
+      'Legacy Data Migration & Cleaning',
+      'Custom ERP/CRM Prototyping',
+      'UAT (User Acceptance Testing) Management',
+      'Staff Training & Knowledge Transfer'
     ],
-    color: 'text-purple-600',
-    borderColor: 'border-purple-600',
-    iconBg: 'bg-purple-50',
-    heroImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop'
+    color: 'text-accent-blue',
+    borderColor: 'border-accent-blue',
+    iconBg: 'bg-accent-blue/10',
+    heroImage: 'https://images.unsplash.com/photo-1573161559521-3aba817926c1?q=80&w=2070&auto=format&fit=crop'
   },
   {
     id: 'accounting-operations',
-    title: 'Accounting Operations',
+    title: 'Accounting Operations & Financial Strategy',
     icon: 'account_balance_wallet',
-    shortDescription: 'Tax, Audit, Bookkeeping & Financial Planning.',
-    fullDescription: 'Secure your financial future with our comprehensive accounting services. Whether you need monthly management reports, tax remittance filing, or a full internal financial audit, our certified experts ensure compliance and maximize your fiscal efficiency.',
+    shortDescription: 'Audit Readiness, Tax Optimization & Fractional CFO Services.',
+    fullDescription: 'Financial clarity is the bedrock of scalability. We don’t just "do books"; we engineer your financial health. From ensuring IFRS compliance to optimizing your tax position for the Nigerian market, our experts act as your internal audit team and financial strategists.',
     features: [
-      'Management Account Preparation',
-      'Tax Remittance & Filing',
-      'Internal Financial Audit',
-      'Financial Modeling & Planning'
+      'IFRS/Local GAAP Compliance',
+      'Strategic Tax Planning & Remittance',
+      'Fractional CFO & Advisory',
+      'Internal Control & Fraud Prevention'
     ],
     color: 'text-green-600',
     borderColor: 'border-green-600',
     iconBg: 'bg-green-50',
-    heroImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop'
+    heroImage: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=2070&auto=format&fit=crop'
   },
   {
     id: 'business-strategy',
-    title: 'Business Strategy',
+    title: 'Business Strategy & Operational Excellence',
     icon: 'campaign',
-    shortDescription: 'Business Plans, SOPs & Licensing.',
-    fullDescription: 'A goal without a plan is just a wish. We craft detailed business plans that secure funding, document Standard Operating Procedures (SOPs) for operational excellence, and assist with complex licensing requirements. We position your business for scalable growth.',
+    shortDescription: 'Investor-Ready Business Plans, SOP Design & Licensing.',
+    fullDescription: 'Position your business for the next decade. We craft rigorous business strategies that survive real-world pressures. From securing capital via high-impact proposals to documenting the SOPs that allow your business to run without you, we build institutions, not just jobs.',
     features: [
-      'Investor-Ready Business Plans',
-      'SOP Documentation',
-      'Proposal Writing',
-      'Regulatory Compliance'
+      'Institutional SOP Development',
+      'High-Conversion Proposals & Pitch Decks',
+      'Regulatory Licensing Support (Lagos/Nigeria)',
+      'Growth Scenarios & Stress Testing'
     ],
-    color: 'text-orange-600',
-    borderColor: 'border-orange-600',
-    iconBg: 'bg-orange-50',
-    heroImage: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop'
-  },
-  {
-    id: 'professional-training',
-    title: 'Professional Training',
-    icon: 'school',
-    shortDescription: 'Corporate Workshops for MSMEs & Teams.',
-    fullDescription: 'Empower your workforce. We offer specialized training sessions tailored for MSMEs and corporate teams. From advanced Excel for data analysis to customer service excellence and accounting standards (IFRS), we upskill your team to meet modern business demands.',
-    features: [
-      'Advanced Excel Training',
-      'Accounting Standards (IFRS)',
-      'Customer Service Excellence',
-      'Corporate Leadership Workshops'
-    ],
-    color: 'text-indigo-600',
-    borderColor: 'border-indigo-600',
-    iconBg: 'bg-indigo-50',
-    heroImage: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop'
-  },
-   {
-    id: 'design-branding',
-    title: 'Design & Branding',
-    icon: 'palette',
-    shortDescription: 'Corporate Branding & Visual Identity.',
-    fullDescription: 'Stand out in a crowded market. Our design team creates cohesive visual identities, from logos to marketing materials, ensuring your brand communicates professionalism and trust at every touchpoint.',
-    features: [
-      'Logo & Identity Systems',
-      'Marketing Collateral',
-      'Brand Guidelines',
-      'Digital Asset Creation'
-    ],
-    color: 'text-pink-600',
-    borderColor: 'border-pink-600',
-    iconBg: 'bg-pink-50',
-    heroImage: 'https://images.unsplash.com/photo-1626785774573-4b7993143c21?q=80&w=2070&auto=format&fit=crop'
+    color: 'text-secondary',
+    borderColor: 'border-secondary',
+    iconBg: 'bg-secondary/10',
+    heroImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2074&auto=format&fit=crop'
   }
 ];
 
-export const CHAT_SYSTEM_INSTRUCTION = `You are SQ-Bot, the expert business consultant AI for SQ Consulting.
-Your persona is friendly, concise, and direct.
-Your goal is to help users and guide them to "Book a Discovery Call".
+export const SUCCESS_STORIES = [
+  {
+    id: 1,
+    client: "Lagos Agri-Industrial Group",
+    industry: "Agriculture",
+    challenge: "Manual tracking led to significant waste and untraceable losses across 5 regional hubs.",
+    solution: "Custom inventory BI dashboard and localized staff training in ERP basics.",
+    impact: "Reduced operational waste by 22% in 6 months and secured expansion funding.",
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+  },
+  {
+    id: 2,
+    client: "Sterling FinServe",
+    industry: "FinTech",
+    challenge: "Struggling with complex regulatory reporting and tax compliance during a high-growth phase.",
+    solution: "Fractional CFO services and automated tax remittance workflow implementation.",
+    impact: "Zero-penalty audit record and 15% increase in operational efficiency.",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop"
+  }
+];
 
-Guidelines:
-1. Keep responses short and straight to the point.
-2. Use **bold text** for key terms or emphasis.
-3. Use numbered lists (1., 2., 3.) or bullet points for readability when explaining steps or features.
-4. If asked about pricing, explain that packages are customized for **maximum ROI** and suggest booking a free consultation.
-5. Always end with a friendly prompt to schedule a call.
+export const CHAT_SYSTEM_INSTRUCTION = `You are SQ-Bot, the elite business growth AI for SQ Consulting (Current year: 2025).
+Motto: "Delivering Values..."
+Location: Lagos, Nigeria.
 
-SQ Consulting Services:
-- **Business Intelligence**: Data Analysis & Dashboards.
-- **Software Transition**: Process Mapping & Change Management.
-- **Accounting Operations**: Tax, Audit & Bookkeeping.
-- **Business Strategy**: Business Plans & SOPs.
-- **Professional Training**: Corporate Workshops (Excel, IFRS, etc.).
+TONE: Friendly, sharp, authoritative yet accessible.
+
+RESPONSE RULES:
+1. **CONCISE**: Max 2-3 short sentences.
+2. **FORMATTING**: Use **bolding** for high-impact terms. Use numbered lists (1. 2. 3.) only for processes.
+3. **VALUE DRIVEN**: Focus on ROI, Efficiency, and Growth.
+4. **CALL TO ACTION**: Always end by suggesting they "Book a Strategy Call" or "Chat with an Expert."
+
+Example: "We specialize in **Business Intelligence** for Nigerian MSMEs. Our dashboards help you spot **revenue leaks** in real-time. Shall we book a call to discuss your data strategy?"
 `;

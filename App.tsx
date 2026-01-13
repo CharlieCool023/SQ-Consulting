@@ -10,8 +10,8 @@ import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { ServiceDetail } from './pages/ServiceDetail';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { SuccessStories } from './pages/SuccessStories';
 
-// Wrapper to handle scroll on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -29,13 +29,14 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="font-sans text-gray-900 bg-background-light selection:bg-primary selection:text-white">
+      <div className="font-sans text-gray-900 bg-background-light selection:bg-primary selection:text-white min-h-screen flex flex-col">
         <Navbar onBookCall={openBooking} />
         
-        <main>
+        <main className="flex-grow">
             <Routes>
                 <Route path="/" element={<Home onBookCall={openBooking} />} />
                 <Route path="/services" element={<ServicesPage onBookCall={openBooking} />} />
+                <Route path="/success-stories" element={<SuccessStories onBookCall={openBooking} />} />
                 <Route path="/about" element={<AboutPage onBookCall={openBooking} />} />
                 <Route path="/contact" element={<ContactPage onBookCall={openBooking} />} />
                 <Route path="/service/:id" element={<ServiceDetail onBookCall={openBooking} />} />
