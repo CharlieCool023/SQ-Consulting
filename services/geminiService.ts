@@ -1,48 +1,40 @@
-import { GoogleGenAI, Content, Part } from "@google/genai";
+
+// Always use the standard GoogleGenAI import from @google/genai
+import { GoogleGenAI } from "@google/genai";
 import { CHAT_SYSTEM_INSTRUCTION } from "../constants";
 
-// Declare process to satisfy TypeScript compiler (value injected by Vite)
-declare const process: { env: { API_KEY: string } };
-
-let aiClient: GoogleGenAI | null = null;
-
-const getClient = () => {
-  if (!aiClient) {
-    const apiKey = process.env.API_KEY;
-    if (!apiKey) {
-      console.error("API_KEY is missing from environment variables.");
-      return null;
-    }
-    aiClient = new GoogleGenAI({ apiKey });
-  }
-  return aiClient;
-};
-
+/**
+ * Sends a message to the Gemini AI model following latest SDK patterns.
+ * Ensures the API client is initialized correctly with environment variables.
+ */
 export const sendMessageToGemini = async (
   history: { role: 'user' | 'model'; text: string }[],
   newMessage: string
 ): Promise<string> => {
-  const client = getClient();
-  if (!client) {
-    return "I'm currently offline. Please book a free call instead.";
-  }
+  // Initialize right before use to ensure the latest API key is used
+  // and named parameter { apiKey: process.env.API_KEY } is used.
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   try {
-    // Map history to the specific format expected by the SDK
-    const formattedHistory: Content[] = history.map(msg => ({
+    // Map history to the format expected by the SDK: { role, parts: [{ text }] }[]
+    const formattedHistory = history.map(msg => ({
       role: msg.role,
-      parts: [{ text: msg.text } as Part]
+      parts: [{ text: msg.text }]
     }));
 
-    const chat = client.chats.create({
-      model: "gemini-2.5-flash",
+    // Using gemini-3-flash-preview for basic text and conversational tasks
+    const chat = ai.chats.create({
+      model: 'gemini-3-flash-preview',
       config: {
         systemInstruction: CHAT_SYSTEM_INSTRUCTION,
       },
       history: formattedHistory
     });
 
+    // chat.sendMessage only accepts the message parameter
     const response = await chat.sendMessage({ message: newMessage });
+    
+    // Use .text property to get the string output from GenerateContentResponse
     return response.text || "I didn't catch that. Could you rephrase?";
   } catch (error) {
     console.error("Gemini API Error:", error);

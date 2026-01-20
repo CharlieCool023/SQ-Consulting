@@ -1,4 +1,4 @@
-import { Service } from './types';
+import { Service, BlogPost, CareerOpening } from './types';
 
 export const SERVICES: Service[] = [
   {
@@ -68,6 +68,87 @@ export const SERVICES: Service[] = [
     borderColor: 'border-secondary',
     iconBg: 'bg-secondary/10',
     heroImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2074&auto=format&fit=crop'
+  }
+];
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: 'nigerian-tax-2025',
+    title: 'Navigating the 2025 Nigerian Tax Landscape',
+    excerpt: 'Key changes in fiscal policy every MSME owner needs to prepare for this year.',
+    content: 'The Nigerian fiscal landscape is undergoing a radical shift in 2025. With new digital tax collection mandates and changes to VAT thresholds, small and medium enterprises must audit their books to avoid heavy penalties...',
+    category: 'Finance',
+    author: 'Adebayo Smith',
+    date: 'Feb 15, 2025',
+    image: 'https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=1770&auto=format&fit=crop',
+    readTime: '6 min read'
+  },
+  {
+    id: 'bi-for-msmes',
+    title: 'Why Data is the New Oil for Lagos Retailers',
+    excerpt: 'How local businesses are using predictive analytics to double their seasonal revenue.',
+    content: 'Data is no longer a luxury for big corporations. Local retailers in areas like Ikeja and Lekki are increasingly leveraging customer purchase patterns to optimize inventory and predict demand...',
+    category: 'Data',
+    author: 'Grace Uzor',
+    date: 'Jan 28, 2025',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1715&auto=format&fit=crop',
+    readTime: '4 min read'
+  },
+  {
+    id: 'scaling-without-chaos',
+    title: 'Scaling Operations Without the Chaos',
+    excerpt: 'SOPs are the hidden engine behind Nigeria’s fastest-growing startups.',
+    content: 'Many businesses fail during the scaling phase because their internal processes cannot keep up with demand. Standard Operating Procedures (SOPs) are not just documents; they are the blueprint for excellence...',
+    category: 'Strategy',
+    author: 'Michael Okun',
+    date: 'Dec 12, 2024',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1770&auto=format&fit=crop',
+    readTime: '8 min read'
+  }
+];
+
+export const CAREER_OPENINGS: CareerOpening[] = [
+  {
+    id: 'senior-strategy-consultant',
+    title: 'Senior Strategy Consultant',
+    department: 'Advisory',
+    type: 'Full-time',
+    location: 'Lagos, Nigeria (Hybrid)',
+    description: 'We are looking for a visionary strategist to lead our high-impact transformation projects.',
+    requirements: [
+      '7+ years in management consulting',
+      'Deep understanding of the Nigerian MSME ecosystem',
+      'Proven track record of delivering measurable ROI',
+      'Masters degree in Business or Finance'
+    ]
+  },
+  {
+    id: 'bi-analyst',
+    title: 'Business Intelligence Analyst',
+    department: 'Data Intelligence',
+    type: 'Full-time',
+    location: 'Remote / Lagos',
+    description: 'Help our clients see the future through data storytelling.',
+    requirements: [
+      'Expertise in PowerBI or Tableau',
+      'SQL proficiency and data cleaning skills',
+      'Ability to translate complex data into executive insights',
+      '3+ years relevant experience'
+    ]
+  },
+  {
+    id: 'accounting-intern',
+    title: 'Financial Strategy Intern',
+    department: 'Finance',
+    type: 'Internship',
+    location: 'Lagos Island',
+    description: 'Learn from the best in the business. Ideal for final-year students or recent graduates.',
+    requirements: [
+      'Strong academic background in Accounting or Finance',
+      'Attention to detail and eagerness to learn',
+      'Basic knowledge of IFRS standards',
+      'Good communication skills'
+    ]
   }
 ];
 
